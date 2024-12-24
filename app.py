@@ -7,6 +7,15 @@ price = 20
 is_true = False
 print(price)
 
-name = input('What is your name? ')
-color = input('What is your favourite color? ')
-print('Hi ' + name + ' ,you like ' + color + 'color')
+# name = input('What is your name? ')
+# color = input('What is your favourite color? ')
+# print('Hi ' + name + ' ,you like ' + color + 'color')
+
+birth_year = input('Birth year: ')
+print(type(birth_year))
+age = 2024 -int(birth_year)
+print(type(age))
+# int()
+# bool()
+# float()
+print(age)
