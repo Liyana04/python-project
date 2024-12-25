@@ -83,11 +83,29 @@ else:
 
 price = 100000
 has_good_credit = True
-if has_good_credit:
+has_high_income = True
+has_criminal_record = True
+
+# can use 'and' or 'or' or 'not' operator
+if has_good_credit and not has_criminal_record:
     down_payment = 0.1 * price
-else
-    down_payment = 0.2 * price
-print(f'Down payment: ${down_payment}')
+    print('Eligible for loan')
+
+# if has_high_income and has_good_credit:
+#     down_payment = 0.1 * price
+#     print('Eligible for loan')
+# else  
+#  
+# if has_good_credit:
+#     down_payment = 0.1 * price
+#     print('Eligible for loan')
+# else
+#     down_payment = 0.2 * price
+# print(f'Down payment: ${down_payment}')
+
+
+
+
 
 
 
