@@ -62,6 +62,11 @@ print(len(course))
 # for replace 'Beginners' to 'Absolute Beginners' print(course.replace('Beginners', 'Absolute Beginners'))
 # for checking if 'Python' exist in course? print('Python' in course)
 
+#arithmetic operations
+print(10/3)
+# will return float, power using **
+print(10//3)
+# will return integer of the first number in float answer
 
 
 
