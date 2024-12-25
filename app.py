@@ -27,4 +27,14 @@ print(price)
 course = "Python's Course for Beginners"
 # or can write like this
 course_1 ='Python Course for "Beginners"'
+# or can write like this for multiple line
+course_2 ='''
+Hello John,
+
+ Here is our first email.
+
+Regards,
+Yana
+'''
 print(course)
+# print(course[0]) will input P
