@@ -103,6 +103,17 @@ if has_good_credit and not has_criminal_record:
 #     down_payment = 0.2 * price
 # print(f'Down payment: ${down_payment}')
 
+# comparison operator
+name = 'John Smith'
+
+if len(name) < 3:
+    print("Name must be at least 5 characters")
+if len(name) > 50:
+    print("Maximum name is 50 characters long")
+else:
+    print("Name looks good!")
+
+
 
 
 
