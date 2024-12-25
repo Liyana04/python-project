@@ -37,4 +37,4 @@ Regards,
 Yana
 '''
 print(course)
-# print(course[0]) will input P
+# print(course[0]) will output P or course[-1] will output s or course[0:3] will output Pyt
