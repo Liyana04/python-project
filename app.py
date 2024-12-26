@@ -254,3 +254,6 @@ numbers[0] = 10
 # print(numbers[0]) will return error, sbb tuple cannot change at all
 
 # unpacking
+# coordinates = (1,2,3) can use [1,2,3] too
+# x,y,z = coordinates
+# print(y) will return 1 and so on..
