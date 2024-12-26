@@ -205,8 +205,15 @@ for x_count in numbers:
     print(output)
 
 # lists
-
-
+names = ['John', 'Sarah', 'May', 'Kely', 'Ray', 'Taylor', 'Zack']
+# print(names[2:]) will print from May till the end
+# find biggest number in the list
+numbers = [3,55,4,66,5,123,6,9,8,55,3,0]
+max = numbers[0]
+for number in numbers:
+    if number > max:
+        max = number
+print(max)
 
 
 
