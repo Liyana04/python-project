@@ -295,3 +295,5 @@ for word in words:
     output += emojis.get(word, word) +" "
     # second word act as default value like ! above
 print(output)
+
+# functions
