@@ -297,3 +297,12 @@ for word in words:
 print(output)
 
 # functions
+# def means define function
+def greet_user():
+    print('Hello there!')
+    print('Welcome abroad')
+
+# need to add 2 lines break after defining function
+print("Start")
+greet_user()
+print("Finish")
