@@ -248,4 +248,7 @@ for number in numbers:
 print(uniques)
 # will return [2,4,6,3,1]
 
-# tuples
+# tuples. cannot add or change anything in the list
+numbers =(1,2,3)
+numbers[0] = 10
+# print(numbers[0]) will return error, sbb tuple cannot change at all
