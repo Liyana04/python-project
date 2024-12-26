@@ -257,3 +257,5 @@ numbers[0] = 10
 # coordinates = (1,2,3) can use [1,2,3] too
 # x,y,z = coordinates
 # print(y) will return 1 and so on..
+
+# dictionary
