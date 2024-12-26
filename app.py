@@ -252,3 +252,5 @@ print(uniques)
 numbers =(1,2,3)
 numbers[0] = 10
 # print(numbers[0]) will return error, sbb tuple cannot change at all
+
+# unpacking
