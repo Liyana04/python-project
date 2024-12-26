@@ -259,3 +259,26 @@ numbers[0] = 10
 # print(y) will return 1 and so on..
 
 # dictionary
+customer = {
+    "name": "John Smith",
+    "age": 21,
+    "is_verified": True
+}
+# print(customer['name']) can use this or
+# print(customer.get("name")) will return None
+customer["name"] = "Jack Snow"
+print(customer.get("birthdate", "Jan 1 2003"))
+
+# map dictionary
+phone = input("Phone: ")
+digit_mapping = {
+    "1": "One",
+    "2": "Two",
+    "3": "Three",
+    "4": "Four",
+}
+output = ""
+for ch in phone:
+    output += digit_mapping.get(ch, "!")+ " "
+print(output)
+# ! if cannot find in the digit_mapping
