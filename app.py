@@ -226,3 +226,25 @@ for row in matrix:
         print(item)
 
 # list methods
+numbers = [5,2,1,5,8,9,4]
+# print(numbers.append(20)) will add at the end of the list
+# print(numbers.insert(0,10)) will add 10 at index 0 of the list
+# print(numbers.remove(5)) will remove number 5
+# print(numbers.clear()) will cler all the list []
+# print(numbers.pop()) will return last number which is 4
+# print(numbers.index(5)) will return the index of number 5
+# print(50 in numbers) will return False
+# print(number.count(5)) will return 2 since there are two 5
+# to sort list
+# numbers.sort() akan susun ascending order
+# numbers.revers()
+# print(numbers)
+# remove duplicate numbers
+numbers = [2,2,4,6,3,4,6,1]
+uniques = []
+for number in numbers:
+    if number not in uniques:
+        uniques.append(number)
+print(uniques)
+# will return [2,4,6,3,1]
+
