@@ -204,6 +204,7 @@ for x_count in numbers:
         output += 'x'
     print(output)
 
+# lists
 
 
 
