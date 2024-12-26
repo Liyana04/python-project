@@ -309,3 +309,8 @@ print("Start")
 # calc_cost(total=50, shipping=5, discount=0.1) keyword argument second
 print("Finish")
 
+# return value
+def square(number):
+    return number * number
+result = square(3)
+print(result)
