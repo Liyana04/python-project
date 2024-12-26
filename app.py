@@ -298,11 +298,14 @@ print(output)
 
 # functions
 # def means define function
-def greet_user():
-    print('Hello there!')
+def greet_user(first_name, last_name):
+    print(f'Hello {first_name}{last_name}!')
     print('Welcome abroad')
 
 # need to add 2 lines break after defining function
 print("Start")
-greet_user()
+# parameters
+# greet_user("John","Smith") position argument first
+# calc_cost(total=50, shipping=5, discount=0.1) keyword argument second
 print("Finish")
+
