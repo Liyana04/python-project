@@ -186,8 +186,23 @@ for price in prices:
 print(f"Total: {total}")
 
 #nested loops
-
-
+numbers = [5,2,5,2,2]
+# can use this to print F shape
+for x_count in numbers:
+    print('x' * x_count)
+# or this to print F shape
+for x_count in numbers:
+    output = ''
+    for count in range(x_count):
+        output += 'x'
+    print(output)
+# or this to print L shape
+numbers = [1,1,1,1,1,5]
+for x_count in numbers:
+    output = ''
+    for count in range(x_count):
+        output += 'x'
+    print(output)
 
 
 
