@@ -282,3 +282,5 @@ for ch in phone:
     output += digit_mapping.get(ch, "!")+ " "
 print(output)
 # ! if cannot find in the digit_mapping
+
+# emoji converter
