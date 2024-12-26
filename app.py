@@ -314,3 +314,22 @@ def square(number):
     return number * number
 result = square(3)
 print(result)
+
+# creating a reusable function
+def emoji_converter(message):
+    
+    words = message.split(' ')
+    emojis = {
+        ":)": "😊",
+        ":(": "😔"
+    }
+    output = ""
+    for word in words:
+        output += emojis.get(word, word) +" "
+        # second word act as default value like ! above
+    return output
+
+
+message = input(">")
+result = emoji_converter(message)
+print(result)
