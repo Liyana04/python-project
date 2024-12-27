@@ -442,3 +442,20 @@ max = find_max(numbers)
 # actually max already build in python function
 # just print(max(numbers))
 print(max)
+
+
+# packages shipping practise
+# can use this
+import ecommerce.shipping
+ecommerce.shipping.calc_shipping()
+
+# or can use this
+from ecommerce.shipping import shipping_calc, tax_calc
+shipping_calc()
+shipping_calc()
+shipping_calc()
+tax_calc()
+
+# or can use
+from ecommerce import shipping
+shipping.shipping_calc()
