@@ -423,3 +423,22 @@ dog1.walk()
 
 cat1 = Cat()
 cat1.be_annoying()
+
+# modules(use other file, converters.py and utils.py)
+# just import from other file then use . the function
+import converters
+converters.kg_to_lbs
+print(converters.kg_to_lbs(70))
+
+# or can use this way(ctrl + space)
+from converters import kg_to_lbs
+print(kg_to_lbs(100))
+
+# find max number from module above
+from utils import find_max
+
+numbers = [10,3,6,2]
+max = find_max(numbers)
+# actually max already build in python function
+# just print(max(numbers))
+print(max)
