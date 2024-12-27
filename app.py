@@ -478,3 +478,7 @@ print(path.exists())
 # find directory in different path
 for file in path.glob('*.py'):
     print(file)
+
+
+# pypi and pip https://pypi.org/    
+# can use as web crawl
