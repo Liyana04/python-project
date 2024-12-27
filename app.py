@@ -460,4 +460,21 @@ tax_calc()
 from ecommerce import shipping
 shipping.shipping_calc()
 
+# pathlib
+from pathlib import Path
 
+#Absolute path
+#c:\Program Files\Microsoft
+# /usr/local/bin
+# Relative Path
+
+path = Path("ecommerce")
+# path = Path() can use only this
+print(path.exists())
+# create a directory
+# print(path.mkdir())
+# remove a directory
+# print(path.rmdir())
+# find directory in different path
+for file in path.glob('*.py'):
+    print(file)
