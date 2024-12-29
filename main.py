@@ -1,6 +1,25 @@
 from fasthtml.common import *
 
+MAX_NAME_CHAR =15
+MAX_MESSAGE_CHAR = 50
 app,rt = fast_app()
+
+
+def render_message():
+    return (
+        Article(
+            Header("Name: Yana"),
+            P("Message: Hi There!"),
+            Footer(Small(Em("Posted: Now"))),
+        ),
+    )
+
+
+def render_message_list():
+    messages=[
+        {"name": "Peter", "message": "Hi There", "Time stamp": "now"}
+    ]
+
 
 def render_content():
     form = Form(
@@ -10,14 +29,14 @@ def render_content():
                 name="name",
                 placeholder="Name",
                 required=True,
-                maxlength=15,
+                maxlength=MAX_NAME_CHAR,
             ),
             Input(
                 type="text",
                 name="message",
                 placeholder="Message",
                 required=True,
-                maxlength=50,
+                maxlength=MAX_MESSAGE_CHAR,
             ),
             Button("Submit", type="submit"),
             role="group",
@@ -31,20 +50,22 @@ def render_content():
 
     return Div(
         P(Em("Write something nice!")),
+        form,
         P("Our form will be here..."),
         Div(
-            "Made with 💙 by Yana",
-            A("Yana", href = "https://www.linkedin.com/in/nur-liyana-aris/", target="_blank"),
+            "Made with 💙 by Yana ",
+            A("Yana ", href = "https://www.linkedin.com/in/nur-liyana-aris/", target="_blank"),
         ),
         Hr(),
         P("The messages will be displayed here....."),
+        render_message(),
     )
 
 
-@rt('/change')
-def get(): 
-    # return P('Nice to be here!')
-    return Titled("Changed", P("Hello! Nice to be here!"), A("Go back to home", href="/"))
+# @rt('/change')
+# def get(): 
+#     # return P('Nice to be here!')
+#     return Titled("Changed", P("Hello! Nice to be here!"), A("Go back to home", href="/"))
 
 @rt('/')
 def get(): 
