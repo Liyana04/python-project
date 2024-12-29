@@ -1,3 +1,7 @@
+import os
+
+from supabase import create_client
+from dotenv import load_dotenv
 from fasthtml.common import *
 
 MAX_NAME_CHAR =15
@@ -5,20 +9,25 @@ MAX_MESSAGE_CHAR = 50
 app,rt = fast_app()
 
 
-def render_message():
+def render_message(entry):
     return (
         Article(
-            Header("Name: Yana"),
-            P("Message: Hi There!"),
-            Footer(Small(Em("Posted: Now"))),
+            Header(f"Name: {entry['name']}"),
+            P(entry["message"]),
+            Footer(Small(Em(f"Posted: {entry['timestamp']}"))),
         ),
     )
 
 
 def render_message_list():
     messages=[
-        {"name": "Peter", "message": "Hi There", "Time stamp": "now"}
+        {"name": "Peter", "message": "Hi There", "timestamp": "now"},
+        {"name": "John", "message": "Cool", "timestamp": "yesterday"},
     ]
+
+    return Div(
+        *[render_message(entry) for entry in messages],
+    )
 
 
 def render_content():
@@ -58,7 +67,7 @@ def render_content():
         ),
         Hr(),
         P("The messages will be displayed here....."),
-        render_message(),
+        render_message_list(),
     )
 
 
