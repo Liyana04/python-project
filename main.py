@@ -44,7 +44,7 @@ def render_content():
 @rt('/change')
 def get(): 
     # return P('Nice to be here!')
-    return Titled("Changed", P("Nice to be here!"), A("Go back to home", href="/"))
+    return Titled("Changed", P("Hello! Nice to be here!"), A("Go back to home", href="/"))
 
 @rt('/')
 def get(): 
