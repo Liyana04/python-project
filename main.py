@@ -104,7 +104,7 @@ def render_content():
     return Div(
         P(Em("Write something nice!")),
         form,
-        P("Our form will be here..."),
+        # P("Our form will be here..."),
         Div(
             "Made with 💙 by Yana ",
             A("Yana ", href = "https://www.linkedin.com/in/nur-liyana-aris/", target="_blank"),
