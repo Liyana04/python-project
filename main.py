@@ -1,30 +1,22 @@
 import os
 from datetime import datetime
 
-# pytz is python library for timezone
 import pytz
-from supabase import create_client
-from dotenv import load_dotenv
 from fasthtml.common import *
 
-# Load environment variables
-load_dotenv() 
+from supabase import create_client, Client
+from dotenv import load_dotenv
 
-MAX_NAME_CHAR =15
+# Load environment variables
+load_dotenv()
+
+# Constants for input character limits and timestamp format
+MAX_NAME_CHAR = 15
 MAX_MESSAGE_CHAR = 50
 TIMESTAMP_FMT = "%Y-%m-%d %I:%M:%S %p Asia/Singapore"
 
-# initialize supabase client
-supabase = create_client(os.getenv("SUPABASE_URL"),os.getenv("SUPABASE_KEY"))
-
-
-# this is a header
-app, rt = fast_app(
-    hdrs=(Link(rel="icon", type="assets/x-icon", href="/assets/favicon.png"),),
-)
-
-
-# app,rt = fast_app() this is also the header
+# Initialize Supabase client
+supabase: Client = create_client(os.getenv("SUPABASE_URL"), os.getenv("SUPABASE_KEY"))
 
 
 def get_asia_time():
@@ -34,17 +26,14 @@ def get_asia_time():
 
 def add_message(name, message):
     timestamp = get_asia_time().strftime(TIMESTAMP_FMT)
-    supabase.table("MyGuestBook").insert(
-        {"name": name, "message": message, "timestamp":timestamp}
+    supabase.table("guestbook").insert(
+        {"name": name, "message": message, "timestamp": timestamp}
     ).execute()
-    # sheet.append_row([name, message, timestamp])
 
 
 def get_messages():
-    # sort by 'id' in descending order to get the latest entry
-    response = (
-        supabase.table("MyGuestBook").select("*").order("id", desc=True).execute()
-        )
+    # Sort by 'id' in descending order to get the latest entries first
+    response = supabase.table("guestbook").select("*").order("id", desc=True).execute()
     return response.data
 
 
@@ -58,16 +47,13 @@ def render_message(entry):
     )
 
 
+app, rt = fast_app(
+    hdrs=(Link(rel="icon", type="assets/x-icon", href="/assets/favicon.png"),),
+)
+
+
 def render_message_list():
-    # from supabase
     messages = get_messages()
-
-    # dummy data
-    # messages=[
-    #     {"name": "Peter", "message": "Hi There", "timestamp": "now"},
-    #     {"name": "John", "message": "Cool", "timestamp": "yesterday"},
-    # ]
-
     return Div(
         *[render_message(entry) for entry in messages],
         id="message-list",
@@ -95,39 +81,29 @@ def render_content():
             role="group",
         ),
         method="post",
-        hx_post="/submit-message",  # Send a POST request to the /submit-message endpoint
-        hx_target="#message-list",  # Only swap the message list
-        hx_swap="outerHTML",  # Replace the entire content of the target element with the response
-        hx_on__after_request="this.reset()",  # Reset the form after submission
+        hx_post="/submit-message",
+        hx_target="#message-list",
+        hx_swap="outerHTML",
+        hx_on__after_request="this.reset()",
     )
 
     return Div(
         P(Em("Write something nice!")),
         form,
-        # P("Our form will be here..."),
         Div(
-            "Made with 💙 by Yana ",
-            A("Yana ", href = "https://www.linkedin.com/in/nur-liyana-aris/", target="_blank"),
+            "Made with ❤️ by ",
+            A("Yana ", href="https://www.linkedin.com/in/nur-liyana-aris/", target="_blank"),
         ),
         Hr(),
-        P("The messages will be displayed here....."),
         render_message_list(),
     )
 
 
-# @rt('/change')
-# def get(): 
-#     # return P('Nice to be here!')
-#     return Titled("Changed", P("Hello! Nice to be here!"), A("Go back to home", href="/"))
-
-@rt('/')
-def get(): 
-    # return Titled(Div(P('Hello World!'), hx_get="/change")) Tiled used Pico here for the styling
-    # return Titled(Div(P('Hello World!')), P(A("Link", href="/change"))) this is the link
-    return Titled("My Guestbook 📖", render_content())
+@rt("/", methods=["GET"])
+def get():
+    return Titled("Yana's Guestbook 📖", render_content())
 
 
-# new route for submit message
 @rt("/submit-message", methods=["POST"])
 def post(name: str, message: str):
     add_message(name, message)
