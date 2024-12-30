@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 from fasthtml.common import *
 
 # Load environment variables
-load_dotenv()
+load_dotenv() 
 
 MAX_NAME_CHAR =15
 MAX_MESSAGE_CHAR = 50
